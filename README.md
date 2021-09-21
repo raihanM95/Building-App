@@ -10,3 +10,9 @@
     <img src="https://img.shields.io/github/stars/raihanM95/Building-App" alt="stars">
   </a>
 </p>
+
+## Technologies
+
+- Angular 11
+- ASP.NET Core 5.0 Web API
+- .NET 5.0 Libraries
