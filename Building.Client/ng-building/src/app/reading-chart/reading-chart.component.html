@@ -1,0 +1,58 @@
+<div class="jumbotron py-3">
+    <h1 class="display-4 text-center">Chart of Reading</h1>
+</div>
+    
+    <div class="card">
+        <div class="card-body">
+            <div class="form-row">
+                <div class="row col-md-2">
+                    <label class="ml-3">Building:</label>
+                    <ngx-select-dropdown [config]="config" [(ngModel)]="buildingSelect" 
+                    class="col-md-12" [options]="loadBuildingDD()"></ngx-select-dropdown>
+                </div>
+                <div class="row col-md-2">
+                    <label class="ml-3">Object:</label>
+                    <ngx-select-dropdown [config]="config" [options]="loadObjectDD()" 
+                    [(ngModel)]="objectSelect" class="col-md-12"></ngx-select-dropdown>
+                </div>
+                <div class="row col-md-2">
+                    <label class="ml-3">Datafield:</label>
+                    <ngx-select-dropdown [config]="config" [options]="loadDataFieldDD()"
+                    [(ngModel)]="dataFieldSelect" class="col-md-12"></ngx-select-dropdown>
+                </div>
+                <div class="row col-md-5">
+                    <label class="ml-5">Datarange:</label>
+
+                    <input type="text"
+                        ngxDaterangepickerMd
+                        [timePicker]="true"
+                        [timePickerSeconds]="true"
+                        [timePickerIncrement]="15"
+                        [timePicker24Hour]="false"
+                        [locale]="{format: 'DD/MM/YYYY HH:mm:ss', firstDay: 1}"
+                        [(ngModel)]="selected" class="form-control offset-md-1 col-md-10"/>
+                    
+                </div>
+                <div class="col-md-1">
+                    <input class="btn btn-primary mt-4" (click)="filterData()"  type="button" value="Search"/>
+                </div>
+            </div>
+        </div>
+      </div>
+    <br> <br>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="chart-wrapper">
+                <canvas baseChart 
+                    [datasets]="GetDataSet()" 
+                    [labels]="GetLabels()" 
+                    [options]="lineChartOptions"
+                    [colors]="lineChartColors" 
+                    [legend]="lineChartLegend" 
+                    [chartType]="lineChartType" 
+                    [plugins]="lineChartPlugins">
+                </canvas>
+            </div>
+        </div>
+      </div>
