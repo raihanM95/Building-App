@@ -11,6 +11,8 @@
   </a>
 </p>
 
+<img src="Screenshot/Output.png" alt="Screen"/>
+
 ## Technologies
 
 - Angular 11
